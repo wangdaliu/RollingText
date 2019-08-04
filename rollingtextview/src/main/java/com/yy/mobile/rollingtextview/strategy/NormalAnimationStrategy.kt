@@ -21,7 +21,7 @@ open class NormalAnimationStrategy : SimpleCharOrderStrategy() {
 
         } else {
             val srcIndex = order.indexOf(sourceChar)
-            val tgtIndex = order.indexOf(targetChar)
+            val tgtIndex = order.lastIndexOf(targetChar)
 
             if (srcIndex < tgtIndex) {
                 order.subList(srcIndex, tgtIndex) to Direction.SCROLL_UP
