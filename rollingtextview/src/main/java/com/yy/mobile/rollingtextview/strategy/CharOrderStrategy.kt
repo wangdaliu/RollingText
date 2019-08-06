@@ -85,7 +85,18 @@ abstract class SimpleCharOrderStrategy : CharOrderStrategy {
         val sizeProgress = (charList.size - 1) * previousProgress.progress
 
         //通过进度获得当前字符
-        val currentCharIndex = sizeProgress.toInt()
+        var currentCharIndex = sizeProgress.toInt()
+
+        if (currentCharIndex <= 0) {
+            currentCharIndex = 0
+        } else if (charList.size in 1..currentCharIndex) {
+            currentCharIndex = charList.size - 1
+        }
+
+
+
+
+
 
         //求底部偏移值
         val k = 1.0 / factor
